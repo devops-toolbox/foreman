@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+foreman_repos_create: "{{ _foreman_repos_create['all']
+  | union ( _foreman_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+foreman_repos_download: "{{ _foreman_repos_download['all']
+  | union ( _foreman_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+foreman_templates_copy: "{{ _foreman_templates_copy['all']
+  | union ( _foreman_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+foreman_services_enable: "{{ _foreman_services_enable['all']
+  | union ( _foreman_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+foreman_selinux_enable: "{{ _foreman_selinux_enable['all']
+  | union ( _foreman_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+foreman_packages_remove: "{{ _foreman_packages_remove['all']
+  | union ( _foreman_packages_remove[my_os]
+  | default([]) ) }}"
+foreman_packages_repos: "{{ _foreman_packages_repos['all']
+  | union ( _foreman_packages_repos[my_os]
+  | default([]) ) }}"
+foreman_packages_prereq: "{{ _foreman_packages_prereq['all']
+  | union ( _foreman_packages_prereq[my_os]
+  | default([]) ) }}"
+foreman_packages_install: "{{ _foreman_packages_install['all']
+  | union ( _foreman_packages_install[my_os]
+  | default([]) ) }}"

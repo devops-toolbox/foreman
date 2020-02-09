@@ -1,0 +1,10 @@
+---
+# Template configuration files for foreman
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ foreman_templates_copy }}"
+  when: foreman_copy_templates

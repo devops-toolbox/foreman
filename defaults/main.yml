@@ -1,0 +1,19 @@
+---
+# defaults file for foreman
+
+foreman_packages_state: present
+foreman_remove_packages: true
+foreman_enable_service: true
+foreman_enable_selinux: true
+foreman_copy_templates: true
+foreman_firewall_configure: true
+foreman_firewall_rules:
+  - service: ssh
+  - port: 3389
+foreman_users:
+  - user: devops
+    group: docker
+foreman_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

@@ -1,0 +1,27 @@
+---
+# Install foreman packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ foreman_packages_remove }}"
+    state: absent
+  become: true
+  when: foreman_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ foreman_packages_repos }}"
+    state: "{{ foreman_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ foreman_packages_prereq }}"
+    state: "{{ foreman_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ foreman_packages_install }}"
+    state: "{{ foreman_packages_state }}"
+  become: true
