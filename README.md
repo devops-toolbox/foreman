@@ -8,10 +8,10 @@ foreman: Foreman
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.foreman](https://galaxy.ansible.com/devops-toolbox.foreman)
+[https://galaxy.ansible.com/devopstoolbox.foreman](https://galaxy.ansible.com/devopstoolbox.foreman)
 
 ```bash
-ansible-galaxy install devops-toolbox.foreman
+ansible-galaxy install devopstoolbox.foreman
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: foreman is configured
       import_role:
-        name: devops-toolbox.foreman
+        name: devopstoolbox.foreman
       vars:
         foreman_packages_state: present
         foreman_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
